@@ -1,8 +1,9 @@
-import './css/styles.css';
+
 import './fetchCountries';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 import { fetchCountries } from './fetchCountries';
+import './css/styles.css';
 const DEBOUNCE_DELAY = 300;
 
 const searchBox = document.querySelector('#search-box');
@@ -27,7 +28,9 @@ function onInput(evt) {
             
             } else {
                 if (response.length >=2  || response.length <=10) {
-                   countryMarkupInfo(response);
+                    countryMarkupInfo(response)
+                   
+                        
                 } else {
                     countrySearchList(response);
                 }

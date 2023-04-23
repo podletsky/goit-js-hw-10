@@ -1,4 +1,3 @@
-
 import './fetchCountries';
 import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
@@ -16,7 +15,8 @@ searchBox.addEventListener('input',debounce(onInput,DEBOUNCE_DELAY))
 function onInput(evt) {
     const inputText = evt.target.value.trim();
     if (inputText === "") {
-        return countryFullInfo.innerHTML = '';
+        countryFullInfo.innerHTML = '' 
+        countryList.innerHTML = ""
 
     }
     fetchCountries(inputText)
@@ -26,13 +26,14 @@ function onInput(evt) {
                     'Too many matches found. Please enter a more specific name.'
                 );
             
-            } else {
-                if (response.length >=2  || response.length <=10) {
-                    countryMarkupInfo(response)
-                   
+            } {
+                if (response.length >=2  && response.length <=10) {
+                 
+                     countrySearchList(response)
                         
-                } else {
-                    countrySearchList(response);
+                } if(response.length===1) {
+                    countryMarkupInfo(response);
+                     countryList.innerHTML =""
                 }
             }
         })

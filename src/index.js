@@ -72,3 +72,4 @@ countryFullInfo.innerHTML = markupInfo;
 
 
 }
+
